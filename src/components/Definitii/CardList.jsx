@@ -10,7 +10,7 @@ const CardList = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const fetchCard = async () => {
     try {
-      const response = await fetch('http://localhost:3001/card');
+      const response = await fetch('http://localhost:3000/card');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }

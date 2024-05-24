@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav>
       <ul className="navbar-list"> 
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/evaluare">Evaluare Națională</Link></li>
+        <li><Link to="/definitii">Definiții</Link></li>
         <li><Link to="/teste">Teste</Link></li>
         <li><Link to="/login">Login</Link></li>
       </ul>
