@@ -1,30 +1,43 @@
-
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { useContext } from 'react';
+
+import { CardContext } from "../../App";
 
 import "./Recommended.css";
-import CardList from "./CardList";
 
-export default function Recommended({ searchTerm, cardList }) {
+function Recommended({ searchTerm }) {
+  const { cards } = useContext(CardContext);
+
+  const filteredCards = cards.filter(({ title }) =>
+    title.toUpperCase().includes(searchTerm.toUpperCase())
+  );
+  
+  const cardsNotFound = filteredCards.length === 0;
 
   return (
     <section>
+      <header>
+        <h1>Recommended for you</h1>
+      </header>
 
-      <ul className="card-list">
-        {cardList
-          .filter((card) =>
-            card.title.toLowerCase().includes(searchTerm.toLowerCase().trim())
-          )
-          .map((card) => (
-            <li className="card-container" key={card.id}>
-              <CardList card={card} />
-            </li>
+      {cardsNotFound ? (
+        <p>404 There were no movies found for the given search input.</p>
+      ) : (
+        <ul className="card-list">
+          {filteredCards.map((cardItem) => (
+            <Link key={cardItem.id} to={`/card/${cardItem.id}`}>
+            </Link>
           ))}
-      </ul>
+        </ul>
+      )}
     </section>
   );
 }
 
+export default Recommended;
+
 Recommended.propTypes = {
   searchTerm: PropTypes.string,
-  cardList: PropTypes.any,
+  cards: PropTypes.any,
 };

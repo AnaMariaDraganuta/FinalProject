@@ -1,11 +1,37 @@
 {
-"card": [
+  "__comments": {
+    "user1": "hello@test.com | 123456",
+    "user2": "draganutaana@yahoo.com | 123456"
+  },
+  "users": [
     {
-      "id": "1",
+      "email": "hello@test.com",
+      "password": "$2a$10$57WkNPXsfKKv4vPJrsa6XuaVeNLarobDL.OCVMxkAU8b.kDV6KWDy",
+      "name": "Test user",
+      "username": "hello",
+      "id": 1
+    },
+    {
+      "email": "draganutaana@yahoo.com",
+      "password": "$2a$10$rzEQNDEFROZFPSUV4ugnXOFaPBCVNREDnhPu7qL5rhcazy9ngQVgm",
+      "name": "Ana Maria",
+      "username": "ana",
+      "id": 2
+    },
+    {
+      "email": "hithere@test.com",
+      "password": "$2a$10$W.HbkgKppG6ArhqAAjOfMuibJhXmPSRRp9Mnw/Ed5XPwHRechIPEe",
+      "name": "Test user 2",
+      "username": "Hi There",
+      "id": 3
+    }
+  ],
+  "cards": [
+    {
       "imageUrl": "https://www.matera.ro/wp-content/uploads/2019/12/mediang.png",
       "title": "Mediana",
-      "description": "Într-un triunghi mediana este segmentul determinat de un vârf al triunghiului și mijlocul laturii opuse acestuia. Există trei mediane corespunzătoare celor trei laturi ale triunghiului. Acestea se intersectează într-un punct numit centrul de greutate al triunghiului"
-   
+      "description": "Într-un triunghi mediana este segmentul determinat de un vârf al triunghiului și mijlocul laturii opuse acestuia. Există trei mediane corespunzătoare celor trei laturi ale triunghiului. Acestea se intersectează într-un punct numit centrul de greutate al triunghiului.",
+      "id": "1"
     },
     {
       "id": "2",
@@ -48,6 +74,12 @@
       "imageUrl": "https://www.matera.ro/wp-content/uploads/2020/01/capture-9.png",
       "title": "Teorema catetei",
       "description": "Într-un triunghi dreptunghic, pătratul unei catete este produsul dintre ipotenuză și proiecția catetei pe ipotenuză."
+    },
+    {
+      "imageUrl": "https://www.matera.ro/wp-content/uploads/2019/12/mediang.png",
+      "title": "Mediana",
+      "description": "Într-un triunghi mediana este segmentul determinat de un vârf al triunghiului și mijlocul laturii opuse acestuia. Există trei mediane corespunzătoare celor trei laturi ale triunghiului. Acestea se intersectează într-un punct numit centrul de greutate al triunghiului",
+      "id": "UWtFjh-"
     }
   ]
 }

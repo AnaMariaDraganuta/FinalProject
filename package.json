@@ -6,14 +6,20 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "server": "json-server db.json -m ./node_modules/json-server-auth -r routes.json",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
+    "express": "^4.19.2",
+    "json-server": "^0.17.3",
+    "json-server-auth": "^2.1.0",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",
-    "react-router-dom": "^6.23.1"
+    "react-router-dom": "^6.23.1",
+    "safe-buffer": "^5.2.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
