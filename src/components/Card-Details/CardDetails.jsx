@@ -1,134 +1,75 @@
-import { useParams, useNavigate } from "react-router-dom";
-
-import "./CardDetails.css";
-import { useContext, useEffect, useState } from "react";
+import { useContext , useEffect, useState } from "react";
 import { retrieveCards } from '../../lib/cards';
-import { CardContext } from "../../App";
+import { CardContext } from '../../App';
+import { useNavigate, useParams } from "react-router-dom";
 
-async function retrieveCard(setCard, cardId) {
-  const response = await fetch(`http://localhost:3000/cards/${cardId}`);
-  const card = await response.json();
 
-  setCard(card);
+async function retrieveCard(setCard, cardId){
+    console.log({cardId});
+    const response = await fetch(`http://localhost:3000/cards/${cardId}`);
+    const card = await response.json();
+
+    setCard(card);
 }
 
 export default function CardDetails() {
-  const [card, setCard] = useState({});
-  const { idFromPath } = useParams();
-  const navigate = useNavigate();
-  const { cards, setCards } = useContext(CardContext);
+    const [card , setCard] = useState({});
+    const { idFromPath } = useParams();   
+    const navigate = useNavigate();
+    const {  setCards } = useContext(CardContext)
 
-  useEffect(() => {
-    retrieveCard(setCard, idFromPath);
-  }, []);
+    useEffect(() => {
+      retrieveCard(setCard, idFromPath); 
+    }, [idFromPath]);
 
-  useEffect(() => {
-    if(!card) {
-      navigate('/');
+    useEffect(() => {
+        if(!card) {
+            navigate('/');
+        }
+    }, [card , navigate])
+
+    if (!card){
+    return;
     }
-  }, [card])
-
-  // if (!card) {
-  //   return;
-  // }
-
-  const { title, imageUrl, description , id } = card;
-
-  function deleteCard() {
-    const userConfirmedAction = confirm('Are you sure you want to delete the movie?')
-
-    if (userConfirmedAction) {
-      fetch(`http://localhost:3000/cards/${id}`, {
-        method: "DELETE",
-      }).then(() => {
     
-        retrieveCards(setCards);
+    const {title, imageUrl, description , id} = card;
 
-        navigate('/');
-      });
-    }
-  }
+    function deleteCard(){
+        const userConfirmedAction = confirm('Are you sure you want to delete the product?')
 
-  function editCard() {
-    navigate(`/edit-card/${id}`);
-  }
+        if(userConfirmedAction) {
 
-  return (
-    <section>
-      <header>
-        <h3> {title} </h3>
-      </header>
+            fetch(`http://localhost:3000/cards/${id}`, {
+                method:"DELETE",
+              }).then(() => {
+        
+                retrieveCards(setCards);
+        
+                navigate('/');
+              });
+            }
+          }
 
-      <img src={imageUrl} />
+        function editCard(){
+            navigate(`/edit-card/${id}`);
+        }
 
-      <p className="movie-detail__category"> Category: {description}</p>
 
-      <button onClick={deleteCard}>Delete movie</button>
-      <button onClick={editCard}>Edit movie</button>
-    </section>
-  );
+    return(
+        <section>
+            <header>
+                <h3>{title}</h3>
+            </header>
+
+            < img src={imageUrl}  />
+
+            <p className="produs-detail__description" >Category : {description}</p>
+            
+            <button onClick={deleteCard}>Delete product</button>
+            <button onClick={editCard}>Edit product</button>
+
+        </section>
+    )
 }
 
 
-// import { useParams, useNavigate } from "react-router-dom";
-// import "./CardDetails.css";
-// import { useContext, useEffect, useState } from "react";
-// import { retrieveCards } from '../../lib/cards';
-// import { CardContext } from "../../App";
-
-// async function retrieveCard(setCard, cardId) {
-//   const response = await fetch(`http://localhost:3000/cards/${cardId}`);
-//   const card = await response.json();
-//   setCard(card);
-// }
-
-// export default function CardDetails() {
-//   const [card, setCard] = useState(null);
-//   const { id } = useParams(); 
-//   const navigate = useNavigate();
-//   const { setCards } = useContext(CardContext);
-
-//   useEffect(() => {
-//     retrieveCard(setCard, id); 
-//   }, [id]);
-
-//   useEffect(() => {
-//     if (card === null) {
-//       navigate('/');
-//     }
-//   }, [card, navigate]); 
-
-//   if (card === null) {
-//     return null; 
-//   }
-
-//   const { title, imageUrl, description, id: cardId } = card;
-
-//   function deleteCard() {
-//     const userConfirmedAction = confirm('Are you sure you want to delete the movie?');
-//     if (userConfirmedAction) {
-//       fetch(`http://localhost:3000/cards/${cardId}`, {
-//         method: "DELETE",
-//       }).then(() => {
-//         retrieveCards(setCards);
-//         navigate('/');
-//       });
-//     }
-//   }
-
-//   function editCard() {
-//     navigate(`/edit-card/${cardId}`);
-//   }
-
-//   return (
-//     <section>
-//       <header>
-//         <h3>{title}</h3>
-//       </header>
-//       <img src={imageUrl} alt={title} />
-//       <p className="card-detail__description">Description: {description}</p>
-//       <button onClick={deleteCard}>Delete movie</button>
-//       <button onClick={editCard}>Edit movie</button>
-//     </section>
-//   );
-// }

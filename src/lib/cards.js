@@ -5,12 +5,11 @@ export async function retrieveCards(setCards, accessToken, navigate) {
 
     const response = await fetch("http://localhost:3000/cards", {
       headers: {
-        // Authorization: `Bearer ${accessToken}`,
-        // Accept: `application/json`
+        Authorization: `Bearer ${accessToken}`,
+        Accept: `application/json`
       },
     });
 
-    console.log(response);
 
     const cardsFromServer = await response.json();
   

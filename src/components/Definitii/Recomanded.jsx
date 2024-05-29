@@ -4,7 +4,7 @@ import { useContext } from 'react';
 
 import { CardContext } from "../../App";
 
-import "./Recommended.css";
+// import "./Recommended.css";
 
 function Recommended({ searchTerm }) {
   const { cards } = useContext(CardContext);
