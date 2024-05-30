@@ -68,3 +68,7 @@
     width: 30%;
   }
 }
+
+.card-list{
+  cursor: pointer;
+}

@@ -28,27 +28,27 @@
   ],
   "cards": [
     {
+      "id": "1",
       "imageUrl": "https://www.matera.ro/wp-content/uploads/2019/12/mediang.png",
-      "title": "Mediana",
-      "description": "Într-un triunghi mediana este segmentul determinat de un vârf al triunghiului și mijlocul laturii opuse acestuia. Există trei mediane corespunzătoare celor trei laturi ale triunghiului. Acestea se intersectează într-un punct numit centrul de greutate al triunghiului.",
-      "id": "1"
+      "title": "Mediana unui triunghi",
+      "description": "Într-un triunghi mediana este segmentul determinat de un vârf al triunghiului și mijlocul laturii opuse acestuia. Există trei mediane corespunzătoare celor trei laturi ale triunghiului. Acestea se intersectează într-un punct numit centrul de greutate al triunghiului."
     },
     {
       "id": "2",
       "imageUrl": "https://www.matera.ro/wp-content/uploads/2019/12/mediatoaree.png",
-      "title": "Mediatoare",
+      "title": "Mediatoare unui triunghi",
       "description": "În geometria plană, mediatoarea este perpendiculara dusă prin mijlocul unui segment. Mediatoarea poate fi definită și ca fiind locul geometric al punctelor egal depărtate de extremitățile segmentului."
     },
     {
       "id": "3",
       "imageUrl": "https://www.matera.ro/wp-content/uploads/2019/12/orto.png",
-      "title": "Înălțimea",
+      "title": "Înălțimea unui triunghi",
       "description": "Înălțimea într-un triunghi reprezintă segmentul determinat de un vârf al triunghiului și piciorul perpendicularei din acel vârf pe dreapta ce conține latura opusă vârfului."
     },
     {
       "id": "4",
       "imageUrl": "https://www.matera.ro/wp-content/uploads/2019/12/bisec.png",
-      "title": "Bisectoarea",
+      "title": "Bisectoarea unui triunghi",
       "description": "Bisectoarea unui triunghi este bisectoarea unui unghi interior al triunghiului. Bisectoarea unui unghi este semidreapta cu originea în vârful unghiului, care împarte acest unghi în alte două unghiuri congruente (unghiuri de măsuri egale)."
     },
     {
@@ -74,12 +74,6 @@
       "imageUrl": "https://www.matera.ro/wp-content/uploads/2020/01/capture-9.png",
       "title": "Teorema catetei",
       "description": "Într-un triunghi dreptunghic, pătratul unei catete este produsul dintre ipotenuză și proiecția catetei pe ipotenuză."
-    },
-    {
-      "imageUrl": "https://www.matera.ro/wp-content/uploads/2019/12/mediang.png",
-      "title": "Mediana",
-      "description": "Într-un triunghi mediana este segmentul determinat de un vârf al triunghiului și mijlocul laturii opuse acestuia. Există trei mediane corespunzătoare celor trei laturi ale triunghiului. Acestea se intersectează într-un punct numit centrul de greutate al triunghiului",
-      "id": "UWtFjh-"
     }
   ]
 }

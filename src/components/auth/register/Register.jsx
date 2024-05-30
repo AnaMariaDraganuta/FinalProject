@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-
+import "./Register.css"
 export function Register() {
   const navigate = useNavigate();
 
@@ -30,36 +30,58 @@ export function Register() {
   }
 
   return (
+    <div className="register-container">
+    <div className="image-container">
+        <img src="https://i.pinimg.com/564x/33/4d/8e/334d8e06c2ef719d6094e9ac1e3213c1.jpg" alt="Placeholder" />
+        <div className="overlay-text">Create new acount</div>
+    </div>
+    <div className="register">
     <form onSubmit={register}>
-      <fieldset>
-        <label htmlFor="username">Username:</label>
-        <div>
-          <input type="text" id="username" name="username" />
-        </div>
-      </fieldset>
+        <fieldset>
+            <label htmlFor="username">Username:</label>
+            <div>
+                <input type="text" id="username" name="username" required />
+            </div>
+        </fieldset>
 
-      <fieldset>
-        <label htmlFor="email">Email:</label>
-        <div>
-          <input type="email" id="email" name="email" />
-        </div>
-      </fieldset>
+        <fieldset>
+            <label htmlFor="email">Email:</label>
+            <div>
+                <input type="email" id="email" name="email" required />
+            </div>
+        </fieldset>
 
-      <fieldset>
-        <label htmlFor="password">Password:</label>
-        <div>
-          <input type="password" id="password" name="password" />
-        </div>
-      </fieldset>
+        <fieldset>
+            <label htmlFor="phoneNumber">Phone Number:</label>
+            <div>
+                <input type="number" id="phoneNumber" name="phoneNumber" required />
+            </div>
+        </fieldset>
 
-      <fieldset>
-        <label htmlFor="reTypePassword">Re type password:</label>
-        <div>
-          <input type="password" id="reTypePassword" name="reTypePassword" />
-        </div>
-      </fieldset>
+        <fieldset>
+            <label htmlFor="password">Password:</label>
+            <div>
+                <input type="password" id="password" name="password" required />
+            </div>
+        </fieldset>
 
-      <button>Register</button>
+        <fieldset>
+            <label htmlFor="reTypePassword">Confirm password:</label>
+            <div>
+                <input type="password" id="reTypePassword" name="reTypePassword" required />
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <label htmlFor="checkbox">
+                <input type="checkbox" id="checkbox" name="checkbox" required />
+                Accept termenii și condițiile
+            </label>
+        </fieldset>
+
+        <button className='buttonRegister' type="submit">Register</button>
     </form>
+</div>
+</div>
   );
 }

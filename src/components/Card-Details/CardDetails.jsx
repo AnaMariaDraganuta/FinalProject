@@ -63,10 +63,10 @@ export default function CardDetails() {
 
             < img src={imageUrl}  />
 
-            <p className="produs-detail__description" >Category : {description}</p>
+            <p className="card-detail__description" >Description : {description}</p>
             
-            <button onClick={deleteCard}>Delete product</button>
-            <button onClick={editCard}>Edit product</button>
+            <button onClick={deleteCard}>Delete card</button>
+            <button onClick={editCard}>Edit card</button>
 
         </section>
     )

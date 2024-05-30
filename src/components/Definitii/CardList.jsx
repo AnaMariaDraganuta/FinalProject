@@ -1,9 +1,8 @@
-import './Card.css';
+import './CardList.css';
 
-import { useEffect, useState } from 'react';
-
+import { useEffect, useState , } from 'react';
+import CardDetails from '../Card-Details/CardDetails';
 import Search from '../Search/Search';
-
 
 const CardList = () => {
   const [card, setCard] = useState([]);
@@ -24,13 +23,14 @@ const CardList = () => {
   useEffect(() => {
     fetchCard();
   }, []);
+  
 
   const filteredCard = card.filter(card =>
     card.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
-    <div>
+    <div onClick={CardDetails}>
       <Search  searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <ul className="card-list">
         {filteredCard.map(card => (

@@ -34,16 +34,13 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/card" element={<ClickCard />} />
+            <Route path="/" element={<ClickCard />} />
             <Route path="/teste" element={<Teste />} />
             <Route path="/definitii" element={<CardList />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/card/:idFromPath" element={<CardDetails />}></Route>
             <Route path="/create-card" element={<CreateCard />}></Route>
-            <Route
-              path="/edit-card/:idFromPath"
-              element={<CreateCard />}
-            ></Route>
+            <Route path="/edit-card/:idFromPath"element={<CardList/>}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/login" element={<Login />}></Route>
           </Routes>
