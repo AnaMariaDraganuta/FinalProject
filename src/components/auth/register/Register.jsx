@@ -31,10 +31,12 @@ export function Register() {
 
   return (
     <div className="register-container">
+
     <div className="image-container">
         <img src="https://i.pinimg.com/564x/33/4d/8e/334d8e06c2ef719d6094e9ac1e3213c1.jpg" alt="Placeholder" />
         <div className="overlay-text">Create new acount</div>
     </div>
+
     <div className="register">
     <form onSubmit={register}>
         <fieldset>
@@ -51,12 +53,12 @@ export function Register() {
             </div>
         </fieldset>
 
-        <fieldset>
+        {/* <fieldset>
             <label htmlFor="phoneNumber">Phone Number:</label>
             <div>
                 <input type="number" id="phoneNumber" name="phoneNumber" required />
             </div>
-        </fieldset>
+        </fieldset> */}
 
         <fieldset>
             <label htmlFor="password">Password:</label>
@@ -82,6 +84,13 @@ export function Register() {
         <button className='buttonRegister' type="submit">Register</button>
     </form>
 </div>
+
+<div className="image-container">
+        <img src="https://i.pinimg.com/564x/ab/46/42/ab4642d231cb198fab0dcde22f3cf31b.jpg" alt="Placeholder" />
+
+    </div>
+
 </div>
+
   );
 }

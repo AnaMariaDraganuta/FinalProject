@@ -10,7 +10,8 @@ import { retrieveCards } from "./lib/cards.js";
 import { Register } from "./components/auth/register/Register.jsx";
 import Home from "./components/Home/Home.jsx";
 import CardDetails from "./components/Card-Details/CardDetails.jsx";
-import ClickCard from "./components/ClickCard/ClickCard.jsx";
+// import ClickCard from "./components/ClickCard/ClickCard.jsx";
+import "./App.css"
 
 export const CardContext = React.createContext();
 export const AuthContext = React.createContext();
@@ -34,13 +35,15 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/" element={<ClickCard />} />
+            {/* <Route path="/" element={<ClickCard />} /> */}
             <Route path="/teste" element={<Teste />} />
-            <Route path="/definitii" element={<CardList />} />
+            {/* <Route path="/definitii" element={<CardList />} /> */}
             <Route path="/Login" element={<Login />} />
             <Route path="/card/:idFromPath" element={<CardDetails />}></Route>
             <Route path="/create-card" element={<CreateCard />}></Route>
             <Route path="/edit-card/:idFromPath"element={<CardList/>}></Route>
+            <Route path="/definitii"element={<CardList/>}></Route>
+
             <Route path="/register" element={<Register />}></Route>
             <Route path="/login" element={<Login />}></Route>
           </Routes>

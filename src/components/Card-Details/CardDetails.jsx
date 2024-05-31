@@ -1,6 +1,6 @@
 import { useContext , useEffect, useState } from "react";
 import { retrieveCards } from '../../lib/cards';
-import { CardContext } from '../../App';
+import { AuthContext, CardContext } from '../../App';
 import { useNavigate, useParams } from "react-router-dom";
 
 
@@ -13,6 +13,7 @@ async function retrieveCard(setCard, cardId){
 }
 
 export default function CardDetails() {
+    const auth = useContext(AuthContext);
     const [card , setCard] = useState({});
     const { idFromPath } = useParams();   
     const navigate = useNavigate();
@@ -56,20 +57,20 @@ export default function CardDetails() {
 
 
     return(
+
         <section>
-            <header>
-                <h3>{title}</h3>
-            </header>
-
-            < img src={imageUrl}  />
-
-            <p className="card-detail__description" >Description : {description}</p>
-            
-            <button onClick={deleteCard}>Delete card</button>
-            <button onClick={editCard}>Edit card</button>
-
+            <><header>
+                    <h3>{title}</h3>
+                </header><img src={imageUrl} /><p className="card-detail__description">Description : {description}</p></>
+               <button onClick={deleteCard}>Delete card</button>
+        
+           {auth ? (
+               <button onClick={editCard}>Edit card</button>
+            ) : (
+                ""
+            )}
         </section>
-    )
+    );
 }
 
 
