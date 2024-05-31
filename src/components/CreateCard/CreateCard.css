@@ -39,6 +39,11 @@
     background-color: #0056b3;
   }
   
+  #description{
+    width: 450px;
+    resize: vertical;
+  }
+
   /* Media Queries for responsive design */
   @media (min-width: 768px) {
     .card-form {

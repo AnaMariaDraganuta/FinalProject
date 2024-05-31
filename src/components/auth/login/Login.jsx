@@ -37,6 +37,7 @@ export default function Login() {
     if (response.ok) {
       localStorage.setItem("accessToken", body.accessToken);
       setAuth(body.accessToken);
+      console.log(body.accessToken);
       navigate("/");
     }
   }
@@ -46,6 +47,7 @@ export default function Login() {
     <div className="login-image-container">
         <img src="https://i.pinimg.com/564x/0c/9b/89/0c9b89b62ba04b4b4740f4ce2da28b54.jpg" alt="Placeholder" /> 
     </div>
+
     <div className="login">
         <form onSubmit={login}>
             {error ? <p className="error">{error}</p> : ""}
@@ -65,9 +67,11 @@ export default function Login() {
             <button className="buttonLogin">Login</button>
         </form>
     </div>
-    <div className="login-image-container">
+
+    {/* <div className="login-image-container">
         <img src="https://i.pinimg.com/564x/7d/f8/f3/7df8f39fd1de47e4aad3232774553516.jpg" alt="Placeholder" /> 
-    </div>
+    </div> */}
+
 </div>
 
 

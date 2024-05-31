@@ -1,13 +1,15 @@
 
 import { useNavigate, useParams } from 'react-router-dom';
 import { useContext } from 'react';
-import { CardContext } from '../../App';
+import { AuthContext, CardContext } from '../../App';
 import './CreateCard.css';
-import CardList from '../Definitii/CardList';
+
+// import CardList from '../Definitii/CardList';
 
 export default function CreateCard() {
   const navigate = useNavigate();
   const { cards } = useContext(CardContext);
+  const {auth} = useContext(AuthContext)
   const { idFromPath } = useParams();
   const selectedCard = cards.find((card) => card.id === idFromPath);
 
@@ -26,13 +28,22 @@ export default function CreateCard() {
     if (idFromPath) {
       fetch(`http://localhost:3000/cards/${idFromPath}`, {
         method: "PUT",
+        headers: {
+          Authorization: `Bearer ${auth}`,
+          "Content-Type": "application/json",
+
+        },
         body: JSON.stringify(cards),
       })
       .then(() => console.log('card was modified!'))
     } else {
       fetch("http://localhost:3000/cards", {
         method: "POST",
-        body: JSON.stringify(CardList),
+        headers: {
+          Authorization: `Bearer ${auth}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cards),
       }).then(() => navigate('/'));
   
       formElement.reset();
@@ -72,10 +83,9 @@ export default function CreateCard() {
         <textarea
           name="description"
           type="area"
-          value="description"
           id="description"
           required
-          defaultValue={selectedCard?.description.toLowerCase() === "card"}
+          defaultValue={selectedCard?.description}
         />
       </div>
     </fieldset>

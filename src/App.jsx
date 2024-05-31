@@ -12,6 +12,9 @@ import Home from "./components/Home/Home.jsx";
 import CardDetails from "./components/Card-Details/CardDetails.jsx";
 // import ClickCard from "./components/ClickCard/ClickCard.jsx";
 import "./App.css"
+// import CardModel from "./components/CardModel/CardModel.jsx";
+// import  Recommend  from "./components/Definitii/Recomanded.jsx";
+// import CardModel from "./components/CardModel/CardModel.jsx";
 
 export const CardContext = React.createContext();
 export const AuthContext = React.createContext();
@@ -21,7 +24,7 @@ function App() {
   const accessToken = localStorage.getItem("accessToken");
   const [cards, setCards] = useState([]);
   const [auth, setAuth] = useState(accessToken);
-
+  console.log(`Auth :${auth}`);
   useEffect(() => {
     retrieveCards(setCards, auth, navigate).catch((error) =>
       console.log(error)
@@ -34,18 +37,24 @@ function App() {
         <AuthContext.Provider value={{ auth, setAuth }}>
           <Navbar />
           <Routes>
-            <Route path="/" element={<Home />} />
-            {/* <Route path="/" element={<ClickCard />} /> */}
+            <Route path="/" element={<Home />} /> 
             <Route path="/teste" element={<Teste />} />
-            {/* <Route path="/definitii" element={<CardList />} /> */}
-            <Route path="/Login" element={<Login />} />
+            {/* <Route path="definitii" element={<CardModel/>} /> */}
+
+            {/* <Route path="/" element={<ClickCard />} /> */}
+            <Route path="/definitii" element={<CardList />} />
+        
             <Route path="/card/:idFromPath" element={<CardDetails />}></Route>
             <Route path="/create-card" element={<CreateCard />}></Route>
-            <Route path="/edit-card/:idFromPath"element={<CardList/>}></Route>
-            <Route path="/definitii"element={<CardList/>}></Route>
+             <Route path="/edit-card/:idFromPath"element={<CreateCard />}></Route> 
+            {/* <Route path="/definitii"element={<ClickCard/>}></Route> */}
+
+
 
             <Route path="/register" element={<Register />}></Route>
             <Route path="/login" element={<Login />}></Route>
+
+
           </Routes>
         </AuthContext.Provider>
       </CardContext.Provider>

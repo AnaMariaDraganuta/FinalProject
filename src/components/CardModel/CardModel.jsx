@@ -1,16 +1,18 @@
 import PropTypes from "prop-types";
 
 
-function CradModel({ cardElement, large = false }) {
-  const { id, imageUrl, description, title } = cardElement;
+function CardModel({ cardElement, large = false }) {
+  // if (!cardElement) {
+  //   return null; // 
+  // }
+  
+  const { id, imageUrl, title, description } = cardElement;
+  console.log(cardElement);
 
   return (
     <li className={`card ${large ? "card--large" : "card--small"}`} key={id}>
       <img className="card__image" src={imageUrl} />
-      <div className="card__bookmark">
-        <i className="card__bookmark-icon" />
-      </div>
-
+      
       <div className='card__info'>
         <div>
 
@@ -23,9 +25,9 @@ function CradModel({ cardElement, large = false }) {
   );
 }
 
-export default CradModel;
+export default CardModel;
 
-CradModel.propTypes = {
+CardModel.propTypes = {
   large: PropTypes.bool,
   cardElement: PropTypes.shape({
     id: PropTypes.string,

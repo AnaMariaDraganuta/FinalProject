@@ -1,10 +1,12 @@
 import './CardList.css';
 
 import { useEffect, useState , } from 'react';
-import CardDetails from '../Card-Details/CardDetails';
+// import CardDetails from '../Card-Details/CardDetails';
 import Search from '../Search/Search';
+import { useNavigate } from 'react-router-dom';
 
 const CardList = () => {
+  const navigate = useNavigate();
   const [card, setCard] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const fetchCard = async () => {
@@ -29,12 +31,20 @@ const CardList = () => {
     card.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+   function showCard(id){
+     navigate(`/card/${id}`);
+
+
+   }
+
   return (
-    <div onClick={CardDetails}>
+    <div >
       <Search  searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      
       <ul className="card-list">
         {filteredCard.map(card => (
-          <li key={card.id} className="card-container">
+          <li key={card.id} className="card-container" onClick={()=>showCard(card.id)}>
+
             <h2>{card.title}</h2>
             <img src={card.imageUrl} alt={card.title} />
             <p>Definiție: {card.description}</p>

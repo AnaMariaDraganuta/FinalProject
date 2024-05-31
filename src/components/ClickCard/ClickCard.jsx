@@ -1,34 +1,39 @@
-import { CardContext } from "../../App";
+// import { CardContext } from "../../App";
 import Search from "../Search/Search";
+import retrieveCards from "../function";
 
-import { useState, useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 // Version 2
-async function retrieveCards(setCards) {
-  const response = await fetch("http://localhost:3000/cards");
-  const cardsFromServer = await response.json();
+// async function retrieveCards(setCards) {
+//   const response = await fetch("http://localhost:3000/cards");
+//   const cardsFromServer = await response.json();
 
-  setCards(cardsFromServer);
-}
+//   setCards(cardsFromServer);
+// }
+
+// Version 1
+// function retrieveCards() {
+//   return fetch("http://localhost:3000/cards").then((response) =>
+//     response.json()
+//   );
+// }
+
 
 export default function ClickCard() {
   
-  const [ searchTerm ,setSearchTerm , setCards] = useState(""); //
-  const { cards } = useContext(CardContext);
+  const [ searchTerm ,setSearchTerm] = useState(""); //
+  const [cards , setCards] = useState([]) ;
+  // const { cards } = useContext(CardContext);
 
   function onSearchChange(_searchTerm) {
     setSearchTerm(_searchTerm , searchTerm); //
   }
 //   Version 1
   useEffect(() => {
-    async function getCards() {
-      const cardsFromServer = await retrieveCards();
-
-      setCards(cardsFromServer);
-    }
-
-    getCards();
-  }, [setCards]);
+    console.log("in useEfect");
+    retrieveCards(setCards);
+  }, []);
 
   console.log(cards);
 

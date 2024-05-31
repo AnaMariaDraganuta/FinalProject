@@ -34,12 +34,6 @@
       "description": "Într-un triunghi mediana este segmentul determinat de un vârf al triunghiului și mijlocul laturii opuse acestuia. Există trei mediane corespunzătoare celor trei laturi ale triunghiului. Acestea se intersectează într-un punct numit centrul de greutate al triunghiului."
     },
     {
-      "id": "2",
-      "imageUrl": "https://www.matera.ro/wp-content/uploads/2019/12/mediatoaree.png",
-      "title": "Mediatoare unui triunghi",
-      "description": "În geometria plană, mediatoarea este perpendiculara dusă prin mijlocul unui segment. Mediatoarea poate fi definită și ca fiind locul geometric al punctelor egal depărtate de extremitățile segmentului."
-    },
-    {
       "id": "3",
       "imageUrl": "https://www.matera.ro/wp-content/uploads/2019/12/orto.png",
       "title": "Înălțimea unui triunghi",
@@ -74,6 +68,12 @@
       "imageUrl": "https://www.matera.ro/wp-content/uploads/2020/01/capture-9.png",
       "title": "Teorema catetei",
       "description": "Într-un triunghi dreptunghic, pătratul unei catete este produsul dintre ipotenuză și proiecția catetei pe ipotenuză."
+    },
+    {
+      "title": "Mediatoare unui triunghi99",
+      "imageUrl": "https://i.pinimg.com/564x/7d/f8/f3/7df8f39fd1de47e4aad3232774553516.jpg",
+      "description": "ffffff",
+      "id": "awl2zcT"
     }
   ]
 }
