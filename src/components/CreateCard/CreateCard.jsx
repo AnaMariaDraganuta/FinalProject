@@ -4,7 +4,6 @@ import { useContext } from 'react';
 import { AuthContext, CardContext } from '../../App';
 import './CreateCard.css';
 
-// import CardList from '../Definitii/CardList';
 
 export default function CreateCard() {
   const navigate = useNavigate();
@@ -35,7 +34,7 @@ export default function CreateCard() {
         },
         body: JSON.stringify(cards),
       })
-      .then(() => console.log('card was modified!'))
+      .then(() => navigate(`/card/${idFromPath}`));
     } else {
       fetch("http://localhost:3000/cards", {
         method: "POST",
@@ -44,7 +43,7 @@ export default function CreateCard() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(cards),
-      }).then(() => navigate('/'));
+      }).then(() => navigate('/definitii'));
   
       formElement.reset();
     }

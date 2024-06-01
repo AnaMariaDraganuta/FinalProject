@@ -1,4 +1,68 @@
 
-.cards-detail__description {
-    color: white;
-  }
+.detail {
+  border-radius: 41px;
+  padding: 20px;
+  margin: 60px 20px;
+  box-shadow: 0px 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.detail-content {
+  margin-bottom: 20px;
+}
+
+.detail-header h3 {
+  font-size: 24px;
+  margin: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.principal-detail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.detail-image {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 40px;
+  margin-bottom: 10px;
+  box-shadow: 11px 14px 9px 0px rgba(0, 0, 0, 0.1);
+
+  
+}
+
+.detail-description {
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 11px 14px 9px 0px rgba(0, 0, 0, 0.1);
+}
+
+.card-detail__actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.card-detail__button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.card-detail__button:hover {
+  background-color: #0056b3;
+}
+
+.card-detail__button--delete {
+  background-color: #dc3545;
+}
+
+.card-detail__button--delete:hover {
+  background-color: #bd2130;
+}

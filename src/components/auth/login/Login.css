@@ -11,9 +11,11 @@
 }
 
 .login-image-container {
+  display: flex;
   position: relative;
   margin-bottom: 2rem;
   text-align: center;
+  margin-top: 2rem;
 }
 
 .login-image-container img {
@@ -24,9 +26,9 @@
   
 }
 
-
-
 .login {
+  display: flex;
+  justify-content: center;
   background: #fff;
   padding: 1rem;
   border-radius: 10px;
@@ -34,6 +36,7 @@
   width: 100%;
   max-width: 300px;
   text-align: center;
+  margin-top: 31px;
 }
 
 .login form {
@@ -86,6 +89,22 @@ input[type="checkbox"] {
 
 .buttonLogin:hover {
   background-color: #0056b3;
+}
+.register-button{
+  background: #630a86;
+  color: rgb(252, 252, 252); 
+  border: none;
+  border-radius: 4px; 
+  padding: 10px 20px; 
+  font-size: 20px; 
+  cursor: pointer; 
+  transition: background-color 0.3s, color 0.3s; 
+  margin-left: 45%;
+  margin-top: 20px;
+}
+
+.register-button:hover {
+  background-color: #370974;
 }
 
 /* Media Queries */

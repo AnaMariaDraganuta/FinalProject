@@ -3,9 +3,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext} from "../../App";
 import { retrieveCards } from '../../lib/cards';
 import { useContext , useEffect, useState } from "react";
+import "./CardDetails.css"
 
 async function retrieveCard(setCard, cardId){
-    console.log({cardId});
+    // console.log({cardId});
     const response = await fetch(`http://localhost:3000/cards/${cardId}`);
     const card = await response.json();
     setCard(card);
@@ -21,7 +22,7 @@ export default function CardDetails() {
     const { setCards } = useContext(CardContext)
 
     useEffect(() => {
-        console.log("useEffect for retrive card");
+        // console.log("useEffect for retrive card");
       retrieveCard(setCard, idFromPath); 
 
     }, [idFromPath]);
@@ -29,7 +30,7 @@ export default function CardDetails() {
 
 
     useEffect(() => {
-        console.log("useEffect for navigation");
+        // console.log("useEffect for navigation");
 
         if(!card) {
             navigate('/');
@@ -58,7 +59,7 @@ export default function CardDetails() {
         
                 retrieveCards(setCards);
         
-                navigate('/');
+                navigate('/definitii');
               });
             }
           }
@@ -70,20 +71,29 @@ export default function CardDetails() {
 
     return(
 
-        <section>
-            <><header>
+        <section className="detail">
+             <div className="detail-content">
+            <><header className="detail-header">
                     <h3>{title}</h3>
-                </header>
-                <img src={imageUrl} />
-                <p className="card-detail__description">Description : {description}</p></>
+                </header >
+                <div className="principal-detail">
+                <img className="detail-image" src={imageUrl} />
+                <p className="detail-description">Definitie : {description}</p>
+                </div>
+
+                </>
                {auth?(
                 <>
-               <button onClick={deleteCard}>Delete card</button>
-               <button onClick={editCard}>Edit card</button>
+
+                <div className="card-detail__actions">
+               <button className="card-detail__button card-detail__button--delete" onClick={deleteCard}>Delete card</button>
+               <button className="card-detail__button card-detail__button--edit" onClick={editCard}>Edit card</button>
+               </div>
     </>
                ):(
                 ""
                )}
+               </div>
         </section>
     );
 }

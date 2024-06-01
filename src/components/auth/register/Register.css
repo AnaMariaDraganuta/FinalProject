@@ -14,6 +14,8 @@
     position: relative;
     margin-bottom: 2rem;
     text-align: center;
+    display: flex;
+    margin-top: 2rem;
 }
 
 .image-container img {
@@ -24,20 +26,6 @@
     
 }
 
-.overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #1e132d;
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    background: rgb(89 116 145 / 20%);
-    /* padding: 0.5rem 1rem; */
-    border-radius: 5px;
-}
-
 .register {
     background: #fff;
     padding: 1rem;
@@ -45,6 +33,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 300px;
+    display: flex;
 }
 
 .register form {
@@ -109,14 +98,7 @@ input[type="checkbox"] {
         /* margin-right: 2rem; */
         margin-bottom: 0;
     }
-    .overlay-text {
-        font-size: 3rem;
-    }
+ 
 }
 
-@media (min-width: 1024px) {
-    
-    .overlay-text {
-        font-size: 5rem;
-    }
-}
+

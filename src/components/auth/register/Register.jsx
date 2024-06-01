@@ -33,8 +33,7 @@ export function Register() {
     <div className="register-container">
 
     <div className="image-container">
-        <img src="https://i.pinimg.com/564x/33/4d/8e/334d8e06c2ef719d6094e9ac1e3213c1.jpg" alt="Placeholder" />
-        <div className="overlay-text">Create new acount</div>
+        <img src="src/photo/create.JPG" alt="Placeholder" />
     </div>
 
     <div className="register">
@@ -87,7 +86,6 @@ export function Register() {
 
 <div className="image-container">
         <img src="https://i.pinimg.com/564x/ab/46/42/ab4642d231cb198fab0dcde22f3cf31b.jpg" alt="Placeholder" />
-
     </div>
 
 </div>
