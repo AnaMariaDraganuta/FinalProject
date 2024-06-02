@@ -6,8 +6,9 @@
   max-width: 1000px;
   /* margin: 3%; */
   margin-top: 8%;
-  justify-content:center;
-  margin-left: 12%;
+  margin-left: 10%;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
 .login-image-container {
@@ -99,12 +100,16 @@ input[type="checkbox"] {
   font-size: 20px; 
   cursor: pointer; 
   transition: background-color 0.3s, color 0.3s; 
-  margin-left: 45%;
+  margin-left: 40%;
   margin-top: 20px;
 }
 
 .register-button:hover {
   background-color: #370974;
+}
+
+.error{
+  color:red
 }
 
 /* Media Queries */

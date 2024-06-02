@@ -7,7 +7,7 @@ export function Register() {
     event.preventDefault();
 
     const formElement = event.target;
-    const { email, username, password, reTypePassword } = formElement;
+    const { email, username, password, reTypePassword, phoneNumber } = formElement;
 
     if (password.value !== reTypePassword.value) {
       console.warn(`Passwords don't match!`);
@@ -18,6 +18,8 @@ export function Register() {
       email: email.value,
       username: username.value,
       password: password.value,
+      phoneNumber : phoneNumber.value
+
     };
 
     fetch("http://localhost:3000/register", {
@@ -52,12 +54,12 @@ export function Register() {
             </div>
         </fieldset>
 
-        {/* <fieldset>
+        <fieldset>
             <label htmlFor="phoneNumber">Phone Number:</label>
             <div>
                 <input type="number" id="phoneNumber" name="phoneNumber" required />
             </div>
-        </fieldset> */}
+        </fieldset>
 
         <fieldset>
             <label htmlFor="password">Password:</label>

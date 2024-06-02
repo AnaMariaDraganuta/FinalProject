@@ -37,7 +37,6 @@ export default function Login() {
     if (response.ok) {
       localStorage.setItem("accessToken", body.accessToken);
       setAuth(body.accessToken);
-      console.log(body.accessToken);
       navigate("/");
     }
   }
@@ -55,7 +54,6 @@ export default function Login() {
 
     <div className="login">
         <form onSubmit={login}>
-            {error ? <p className="error">{error}</p> : ""}
             <h1>Welcome back</h1>
             <fieldset>
                 <label htmlFor="email">Email:</label>
@@ -70,6 +68,7 @@ export default function Login() {
                 </div>
             </fieldset>
             <button className="buttonLogin">Login</button>
+            {error ? <p className="error">{error}</p> : ""}
         </form>
     </div>
 

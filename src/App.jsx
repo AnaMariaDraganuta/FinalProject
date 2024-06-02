@@ -12,8 +12,10 @@ import Home from "./components/Home/Home.jsx";
 import CardDetails from "./components/Card-Details/CardDetails.jsx";
 // import ClickCard from "./components/ClickCard/ClickCard.jsx";
 import "./App.css"
+// import Logout from "./components/auth/logout/logout.jsx";
+import Footer from "./components/Footer/Footer.jsx";
+// import LogoutButton from "./components/auth/logout/deleteToken.jsx";
 import Logout from "./components/auth/logout/logout.jsx";
-import UserProfile from "./components/UserProfile/UserProfile.jsx";
 // import CardModel from "./components/CardModel/CardModel.jsx";
 // import  Recommend  from "./components/Definitii/Recomanded.jsx";
 // import CardModel from "./components/CardModel/CardModel.jsx";
@@ -58,9 +60,9 @@ function App() {
             <Route path="/register" element={<Register />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/logout" element={<Logout />}></Route>
-            <Route path="/profil" element={<UserProfile />}></Route>
 
           </Routes>
+          <Footer></Footer>
         </AuthContext.Provider>
       </CardContext.Provider>
     </>

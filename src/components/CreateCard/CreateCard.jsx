@@ -50,6 +50,8 @@ export default function CreateCard() {
   }
 
   return (
+    <div>
+      <h1 className="card">Adaugati noua lectie</h1>
     <form className="card-form" onSubmit={saveCard}>
     <fieldset className="form-fieldset">
       <label htmlFor="title">Title</label>
@@ -91,5 +93,6 @@ export default function CreateCard() {
 
     <button className="form-button">Save card</button>
   </form>
+  </div>
   );
 }
