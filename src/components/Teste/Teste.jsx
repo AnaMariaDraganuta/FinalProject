@@ -1,4 +1,3 @@
-
 import './Teste.css';
 
 const Teste = () => {

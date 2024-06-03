@@ -24,8 +24,21 @@
       "name": "Test user 2",
       "username": "Hi There",
       "id": 3
+    },
+    {
+      "email": "de@yahoo.com",
+      "password": "$2a$10$2C08gqUZJGw6SjhQ7Yzw9.rViBKzPqq.NdPHCxDJYtfBZNpkFHl46",
+      "username": "ana",
+      "phoneNumber": "114578152",
+      "id": 4
+    },
+    {
+      "email": "dt@yahoo.com",
+      "password": "$2a$10$HJoDBoRCOLAUk/d0NQD8suoKDFXzsxm1aerxZZVrLVVBbOxFC4fj2",
+      "username": "ana",
+      "phoneNumber": "114578152",
+      "id": 5
     }
- 
   ],
   "cards": [
     {

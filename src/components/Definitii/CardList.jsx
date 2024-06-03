@@ -3,48 +3,52 @@ import "./CardList.css";
 import { useContext, useEffect, useState } from "react";
 import Search from "../Search/Search";
 import { useNavigate } from "react-router-dom";
-import { AuthContext} from "../../App";
+import { AuthContext } from "../../App";
 
 const CardList = () => {
-  const{auth} = useContext(AuthContext);
+  const { auth } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [card, setCard] = useState([]);
+  const [cards, setCards] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const fetchCard = async () => {
-    try {
-      const response = await fetch("http://localhost:3000/cards");
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await response.json();
-      setCard(data);
-    } catch (error) {
-      console.error("Error fetching card:", error);
-    }
+
+  const fetchCards = () => {
+    fetch("http://localhost:3000/cards")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setCards(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching cards:", error);
+      });
   };
 
   useEffect(() => {
-    fetchCard();
+    fetchCards();
   }, []);
 
-  const filteredCard = card.filter((card) =>
+  const filteredCards = cards.filter((card) =>
     card.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  function showCard(id) {
+  const showCard = (id) => {
     navigate(`/card/${id}`);
+  };
 
-  }
-  function createCard() {
+  const createCard = () => {
     navigate(`/create-card`);
-  }
+  };
 
   return (
     <div>
       <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
       <ul className="card-list">
-        {filteredCard.map((card) => (
+        {filteredCards.map((card) => (
           <li
             key={card.id}
             className="card-container"
@@ -56,12 +60,14 @@ const CardList = () => {
           </li>
         ))}
       </ul>
-      {auth?(
-      <button className="create-button" onClick={() => createCard()}>Adauga definitii</button>
-    ):(
-      ""
-     )}
-      </div>
+      {auth ? (
+        <button className="create-button" onClick={createCard}>
+          Adauga definitii
+        </button>
+      ) : (
+        ""
+      )}
+    </div>
   );
 };
 

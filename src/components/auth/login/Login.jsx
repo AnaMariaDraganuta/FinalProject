@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../App";
-import './Login.css';
+
+import "./Login.css";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -46,39 +47,44 @@ export default function Login() {
 
   return (
     <div>
-<div className="login-container">
+      <div className="login-container">
+        <div className="login-image-container">
+          <img
+            src="https://i.pinimg.com/564x/0c/9b/89/0c9b89b62ba04b4b4740f4ce2da28b54.jpg"
+            alt="Placeholder"
+          />
+        </div>
 
-    <div className="login-image-container">
-        <img src="https://i.pinimg.com/564x/0c/9b/89/0c9b89b62ba04b4b4740f4ce2da28b54.jpg" alt="Placeholder" /> 
-    </div>
-
-    <div className="login">
-        <form onSubmit={login}>
+        <div className="login">
+          <form onSubmit={login}>
             <h1>Welcome back</h1>
             <fieldset>
-                <label htmlFor="email">Email:</label>
-                <div>
-                    <input type="email" id="email" name="email" />
-                </div>
+              <label htmlFor="email">Email:</label>
+              <div>
+                <input type="email" id="email" name="email" />
+              </div>
             </fieldset>
             <fieldset>
-                <label htmlFor="password">Password:</label>
-                <div>
-                    <input type="password" id="password" name="password" />
-                </div>
+              <label htmlFor="password">Password:</label>
+              <div>
+                <input type="password" id="password" name="password" />
+              </div>
             </fieldset>
             <button className="buttonLogin">Login</button>
             {error ? <p className="error">{error}</p> : ""}
-        </form>
+          </form>
+        </div>
+
+        <div className="login-image-container">
+          <img
+            src="https://i.pinimg.com/564x/7d/f8/f3/7df8f39fd1de47e4aad3232774553516.jpg"
+            alt="Placeholder"
+          />
+        </div>
+      </div>
+      <button className="register-button" onClick={() => register()}>
+        Create new acount
+      </button>
     </div>
-
-    <div className="login-image-container">
-        <img src="https://i.pinimg.com/564x/7d/f8/f3/7df8f39fd1de47e4aad3232774553516.jpg" alt="Placeholder" /> 
-    </div>
-
-</div>
-<button className="register-button" onClick={() => register()}>Create new acount</button>
-</div>
-
   );
 }
