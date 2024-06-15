@@ -19,7 +19,7 @@
       "name": "Ana Maria",
       "username": "ana",
       "id": 2 ,
-      "roles": "User"
+      "roles": ["User"]
     }
   ],
   "cards": [
