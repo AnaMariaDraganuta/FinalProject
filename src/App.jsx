@@ -12,19 +12,22 @@ import CardList from "./components/Definitii/CardList.jsx";
 import CreateCard from "./components/CreateCard/CreateCard.jsx";
 import Home from "./components/Home/Home.jsx";
 import CardDetails from "./components/Card-Details/CardDetails.jsx";
-import Footer from "./components/Footer/Footer.jsx";
 import Logout from "./components/auth/logout/logout.jsx";
+// import Footer from "./components/Footer/Footer.jsx";
 
 import "./App.css"
 
 export const CardContext = React.createContext();
 export const AuthContext = React.createContext();
+export const UsersContext = React.createContext();
+
 
 function App() {
   const navigate = useNavigate();
   const accessToken = localStorage.getItem("accessToken");
   const [cards, setCards] = useState([]);
   const [auth, setAuth] = useState(accessToken);
+  const [roles , setAdmin] = useState();
 
   useEffect(() => {
     retrieveCards(setCards, auth, navigate).catch((error) =>
@@ -36,6 +39,7 @@ function App() {
     <>
       <CardContext.Provider value={{ cards, setCards }}>
         <AuthContext.Provider value={{ auth, setAuth }}>
+        <UsersContext.Provider value={{ roles, setAdmin }}>
           <Navbar />
           
           <Routes>
@@ -50,7 +54,8 @@ function App() {
             <Route path="/logout" element={<Logout />}></Route>
           </Routes>
 
-          <Footer></Footer>
+          {/* <Footer></Footer> */}
+          </UsersContext.Provider>
         </AuthContext.Provider>
       </CardContext.Provider>
     </>

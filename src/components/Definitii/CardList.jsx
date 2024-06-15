@@ -1,5 +1,4 @@
 import "./CardList.css";
-
 import { useContext, useEffect, useState } from "react";
 import Search from "../Search/Search";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +9,24 @@ const CardList = () => {
   const navigate = useNavigate();
   const [cards, setCards] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [user] = useState(() => {
+    const userFromStorage = localStorage.getItem('user');
+    console.log('User from localStorage:', userFromStorage); // Verificăm conținutul
+    return userFromStorage ? JSON.parse(userFromStorage) : null;
+  });
+  const [isAdmin, setAdmin] = useState(false);
+
+  useEffect(() => {
+    if (user && user.roles) {
+      console.log('User roles:', user.roles); // Verificăm rolurile
+      setAdmin(user.roles.includes("Admin"));
+    } else {
+      console.log('No roles found for user');
+      setAdmin(false);
+    }
+  }, [user]);
+
+  console.log(`Is Admin: ${isAdmin}`);
 
   const fetchCards = () => {
     fetch("http://localhost:3000/cards")
@@ -56,17 +73,15 @@ const CardList = () => {
           >
             <h2>{card.title}</h2>
             <img src={card.imageUrl} alt={card.title} />
-            <p>Definiție: {card.description}</p>
+            {/* <p>Definiție: {card.description}</p> */}
           </li>
         ))}
       </ul>
-      {auth ? (
+      {auth && isAdmin ? (
         <button className="create-button" onClick={createCard}>
           Adauga definitii
         </button>
-      ) : (
-        ""
-      )}
+      ) : null}
     </div>
   );
 };

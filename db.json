@@ -1,43 +1,25 @@
 {
   "__comments": {
-    "user1": "hello@test.com | 123456",
-    "user2": "draganutaana@yahoo.com | 123456"
+    "user1": "admin@test.com | 123456",
+    "user2": "ana@yahoo.com | 123456"
   },
   "users": [
     {
-      "email": "hello@test.com",
+      "id": 1,
+      "email": "admin@test.com",
       "password": "$2a$10$57WkNPXsfKKv4vPJrsa6XuaVeNLarobDL.OCVMxkAU8b.kDV6KWDy",
       "name": "Test user",
       "username": "hello",
-      "id": 1
+      "roles": ["Admin"]
+      
     },
     {
-      "email": "draganutaana@yahoo.com",
+      "email": "ana@yahoo.com",
       "password": "$2a$10$rzEQNDEFROZFPSUV4ugnXOFaPBCVNREDnhPu7qL5rhcazy9ngQVgm",
       "name": "Ana Maria",
       "username": "ana",
-      "id": 2
-    },
-    {
-      "email": "hithere@test.com",
-      "password": "$2a$10$W.HbkgKppG6ArhqAAjOfMuibJhXmPSRRp9Mnw/Ed5XPwHRechIPEe",
-      "name": "Test user 2",
-      "username": "Hi There",
-      "id": 3
-    },
-    {
-      "email": "de@yahoo.com",
-      "password": "$2a$10$2C08gqUZJGw6SjhQ7Yzw9.rViBKzPqq.NdPHCxDJYtfBZNpkFHl46",
-      "username": "ana",
-      "phoneNumber": "114578152",
-      "id": 4
-    },
-    {
-      "email": "dt@yahoo.com",
-      "password": "$2a$10$HJoDBoRCOLAUk/d0NQD8suoKDFXzsxm1aerxZZVrLVVBbOxFC4fj2",
-      "username": "ana",
-      "phoneNumber": "114578152",
-      "id": 5
+      "id": 2 ,
+      "roles": "User"
     }
   ],
   "cards": [

@@ -1,13 +1,12 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../App";
-
 import "./Login.css";
 
 export default function Login() {
   const navigate = useNavigate();
-  const { setAuth } = useContext(AuthContext);
   const [error, setError] = useState();
+  const { setAuth } = useContext(AuthContext);
 
   async function login(event) {
     event.preventDefault();
@@ -28,7 +27,10 @@ export default function Login() {
       },
       body: JSON.stringify(user),
     });
+
     const body = await response.json();
+
+    console.log('Response from server:', body); // Verifică răspunsul serverului
 
     if (response.status === 400) {
       setError(body);
@@ -36,11 +38,22 @@ export default function Login() {
     }
 
     if (response.ok) {
+      // Salvăm token-ul și întregul obiect utilizator în localStorage
       localStorage.setItem("accessToken", body.accessToken);
+      localStorage.setItem("user", JSON.stringify(body.user));
+      console.log('User saved to localStorage:', localStorage.getItem('user')); // Verifică salvarea
+
+      // Setăm autentificarea în context
       setAuth(body.accessToken);
+
+      // Redirecționăm utilizatorul după autentificare
       navigate("/");
+    } else {
+      console.error('Login failed:', body); // În caz de eroare
+      setError(body);
     }
   }
+
   function register() {
     navigate(`/register`);
   }
@@ -60,18 +73,17 @@ export default function Login() {
             <h1>Welcome back</h1>
             <fieldset>
               <label htmlFor="email">Email:</label>
-              <div>
-                <input type="email" id="email" name="email" />
-              </div>
+              <input type="email" id="email" name="email" />
             </fieldset>
             <fieldset>
               <label htmlFor="password">Password:</label>
-              <div>
-                <input type="password" id="password" name="password" />
-              </div>
+              <input type="password" id="password" name="password" />
             </fieldset>
             <button className="buttonLogin">Login</button>
             {error ? <p className="error">{error}</p> : ""}
+            <p className="register-button" onClick={() => register()}>
+              Create new account
+            </p>
           </form>
         </div>
 
@@ -82,9 +94,6 @@ export default function Login() {
           />
         </div>
       </div>
-      <button className="register-button" onClick={() => register()}>
-        Create new acount
-      </button>
     </div>
   );
 }
