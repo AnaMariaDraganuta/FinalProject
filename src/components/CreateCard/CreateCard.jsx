@@ -16,12 +16,13 @@ export default function CreateCard() {
     event.preventDefault();
     const formElement = event.target;
 
-    const { title, url, description } = formElement;
+    const { title, url, description, youtube } = formElement;
 
     const cards = {
       title: title.value,
       imageUrl: url.value,
       description: description.value,
+      youtube : youtube.value,
     };
 
     if (idFromPath) {
@@ -51,8 +52,10 @@ export default function CreateCard() {
 
   return (
     <div>
-      <h1 className="card">Adaugati noua lectie</h1>
     <form className="card-form" onSubmit={saveCard}>
+
+      <h1 className="card">Adaugati noua lectie</h1>
+
     <fieldset className="form-fieldset">
       <label htmlFor="title">Title</label>
       <input
@@ -91,7 +94,23 @@ export default function CreateCard() {
       </div>
     </fieldset>
 
+    <fieldset className="form-fieldset">
+      <div>
+        <label htmlFor="youtube">Youtube Link:</label>
+        <input
+          className="form-input"
+          name="youtube"
+          type="url"
+          id="youtube"
+          required
+          defaultValue={selectedCard?.youtube}
+        />
+      </div>
+    </fieldset>
+
+
     <button className="form-button">Save card</button>
+
   </form>
   </div>
   );

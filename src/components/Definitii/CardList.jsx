@@ -74,6 +74,7 @@ const CardList = () => {
             <h2>{card.title}</h2>
             <img src={card.imageUrl} alt={card.title} />
             {/* <p>Definiție: {card.description}</p> */}
+            <p>Click pentru mai multe informatii.</p>
           </li>
         ))}
       </ul>

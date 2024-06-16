@@ -9,7 +9,7 @@ export function Register() {
     event.preventDefault();
 
     const formElement = event.target;
-    const { email, username, password, reTypePassword, phoneNumber } =
+    const { firstName ,secondName, username, email,phoneNumber ,  password, reTypePassword} =
       formElement;
 
     if (password.value !== reTypePassword.value) {
@@ -18,10 +18,12 @@ export function Register() {
     }
 
     const user = {
-      email: email.value,
+      firstName: firstName.value,
+      secondName: secondName.value,
       username: username.value,
-      password: password.value,
       phoneNumber: phoneNumber.value,
+      email: email.value,
+      password: password.value
     };
 
     fetch("http://localhost:3000/register", {
@@ -41,6 +43,21 @@ export function Register() {
 
       <div className="register">
         <form onSubmit={register}>
+          
+          <fieldset>
+            <label htmlFor="firstName">First Name:</label>
+            <div>
+              <input type="text" id="firstName" name="firstName" required />
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <label htmlFor="secondName">Second Name</label>
+            <div>
+              <input type="text" id="secondName" name="secondName" required />
+            </div>
+          </fieldset>
+
           <fieldset>
             <label htmlFor="username">Username:</label>
             <div>
@@ -98,12 +115,7 @@ export function Register() {
         </form>
       </div>
 
-      <div className="image-container">
-        <img
-          src="https://i.pinimg.com/564x/ab/46/42/ab4642d231cb198fab0dcde22f3cf31b.jpg"
-          alt="Placeholder"
-        />
-      </div>
+
     </div>
   );
 }

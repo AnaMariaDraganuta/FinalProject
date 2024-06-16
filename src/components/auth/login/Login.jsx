@@ -1,12 +1,13 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../App";
+import { AuthContext,IdContext } from "../../../App";
 import "./Login.css";
 
 export default function Login() {
   const navigate = useNavigate();
   const [error, setError] = useState();
   const { setAuth } = useContext(AuthContext);
+  const { setId } = useContext(IdContext);
 
   async function login(event) {
     event.preventDefault();
@@ -30,7 +31,7 @@ export default function Login() {
 
     const body = await response.json();
 
-    console.log('Response from server:', body); // Verifică răspunsul serverului
+    // console.log('Response from server:', body); 
 
     if (response.status === 400) {
       setError(body);
@@ -38,18 +39,20 @@ export default function Login() {
     }
 
     if (response.ok) {
-      // Salvăm token-ul și întregul obiect utilizator în localStorage
+     
       localStorage.setItem("accessToken", body.accessToken);
       localStorage.setItem("user", JSON.stringify(body.user));
-      console.log('User saved to localStorage:', localStorage.getItem('user')); // Verifică salvarea
+      localStorage.setItem('user' , body.user.id )
 
-      // Setăm autentificarea în context
+      // console.log('User saved to localStorage:', localStorage.getItem('user'));
+
+    
       setAuth(body.accessToken);
-
-      // Redirecționăm utilizatorul după autentificare
+      setId(body.user.id);
       navigate("/");
+      
     } else {
-      console.error('Login failed:', body); // În caz de eroare
+      console.error('Login failed:', body); 
       setError(body);
     }
   }
@@ -87,12 +90,12 @@ export default function Login() {
           </form>
         </div>
 
-        <div className="login-image-container">
+        {/* <div className="login-image-container">
           <img
             src="https://i.pinimg.com/564x/7d/f8/f3/7df8f39fd1de47e4aad3232774553516.jpg"
             alt="Placeholder"
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

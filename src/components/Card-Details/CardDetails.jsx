@@ -4,6 +4,7 @@ import { AuthContext } from "../../App";
 import { retrieveCards } from "../../lib/cards";
 import { useContext, useEffect, useState } from "react";
 import "./CardDetails.css";
+import ReactPlayer from "react-player";
 
 async function retrieveCard(setCard, cardId) {
   const response = await fetch(`http://localhost:3000/cards/${cardId}`);
@@ -33,7 +34,7 @@ export default function CardDetails() {
     return;
   }
 
-  const { id, title, imageUrl, description } = card;
+  const { id, title, imageUrl, description, youtube } = card;
 
   function deleteCard() {
     const userConfirmedAction = confirm(
@@ -68,6 +69,11 @@ export default function CardDetails() {
           <div className="principal-detail">
             <img className="detail-image" src={imageUrl} />
             <p className="detail-description">Definitie : {description}</p>
+          </div>
+          <div className="video-wrapper">
+            <p>În continuare vă invit să vizionați acest video pentru a înțelege 
+              mai bine noțiunile. </p>
+              <ReactPlayer className="react-player" url={youtube} />
           </div>
         </>
         {auth ? (

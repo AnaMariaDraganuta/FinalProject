@@ -2,12 +2,13 @@ import Logout from "../auth/logout/logout";
 
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../../App";
+import { AuthContext, IdContext } from "../../App";
 
 import "./Navbar.css";
 
 const Navbar = () => {
   const { auth } = useContext(AuthContext);
+  const { id } = useContext(IdContext);
   return (
     <nav>
       <ul className="navbar-list">
@@ -16,9 +17,15 @@ const Navbar = () => {
         <li><Link to="/teste">Teste</Link></li>
 
         {auth ? (
+            <>
           <li><Logout/></li>
+          <li><Link to={`/edit-profile/${id}`}>Edit Profile</Link></li>
+        </>
         ) : (
+        
           <li><Link to="/login">LogIn</Link></li>
+      
+
         )}
       </ul>
     </nav>

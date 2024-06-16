@@ -41,11 +41,11 @@
   flex-direction: column;
 }
 
-fieldset {
+.register fieldset {
   border: none;
 }
 
-label {
+.register label {
   display: block;
   margin-bottom: 0.3rem;
   font-weight: bold;
@@ -62,7 +62,7 @@ label {
   font-size: 0.9rem;
 }
 
-input[type="checkbox"] {
+.register input[type="checkbox"] {
   width: auto;
   margin-right: 0.5rem;
 }

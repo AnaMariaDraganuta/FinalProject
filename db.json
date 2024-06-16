@@ -1,25 +1,32 @@
 {
   "__comments": {
     "user1": "admin@test.com | 123456",
-    "user2": "ana@yahoo.com | 123456"
+    "user2": "user@test.com | 123456"
   },
   "users": [
     {
       "id": 1,
       "email": "admin@test.com",
       "password": "$2a$10$57WkNPXsfKKv4vPJrsa6XuaVeNLarobDL.OCVMxkAU8b.kDV6KWDy",
-      "name": "Test user",
-      "username": "hello",
-      "roles": ["Admin"]
-      
+      "firstName": "Draganuta",
+      "secondName": "Ana-Maria",
+      "username": "AnaMaria",
+      "phoneNumber": "0700000000",
+      "roles": [
+        "Admin"
+      ]
     },
     {
-      "email": "ana@yahoo.com",
+      "email": "user@test.com",
       "password": "$2a$10$rzEQNDEFROZFPSUV4ugnXOFaPBCVNREDnhPu7qL5rhcazy9ngQVgm",
-      "name": "Ana Maria",
-      "username": "ana",
-      "id": 2 ,
-      "roles": ["User"]
+      "firstName": "Popescu",
+      "secondName": "Alina",
+      "username": "AlinaP",
+      "phoneNumber": "0711111111",
+      "id": 2,
+      "roles": [
+        "User"
+      ]
     }
   ],
   "cards": [
@@ -27,49 +34,57 @@
       "id": "1",
       "imageUrl": "https://www.matera.ro/wp-content/uploads/2019/12/mediang.png",
       "title": "Mediana unui triunghi",
-      "description": "Într-un triunghi mediana este segmentul determinat de un vârf al triunghiului și mijlocul laturii opuse acestuia. Există trei mediane corespunzătoare celor trei laturi ale triunghiului. Acestea se intersectează într-un punct numit centrul de greutate al triunghiului."
+      "description": "Într-un triunghi mediana este segmentul determinat de un vârf al triunghiului și mijlocul laturii opuse acestuia. Există trei mediane corespunzătoare celor trei laturi ale triunghiului. Acestea se intersectează într-un punct numit centrul de greutate al triunghiului.",
+      "youtube": "https://youtu.be/R19WDE8rIp8?si=wXDBZ2ZHhD9whKkC"
     },
     {
       "id": "3",
       "imageUrl": "https://www.matera.ro/wp-content/uploads/2019/12/orto.png",
       "title": "Înălțimea unui triunghi",
-      "description": "Înălțimea într-un triunghi reprezintă segmentul determinat de un vârf al triunghiului și piciorul perpendicularei din acel vârf pe dreapta ce conține latura opusă vârfului."
+      "description": "Înălțimea într-un triunghi reprezintă segmentul determinat de un vârf al triunghiului și piciorul perpendicularei din acel vârf pe dreapta ce conține latura opusă vârfului.",
+      "youtube": "https://youtu.be/YzSzmuNdC6w?si=TgFlk7SX5Tq6jrBT"
     },
     {
       "id": "4",
       "imageUrl": "https://www.matera.ro/wp-content/uploads/2019/12/bisec.png",
       "title": "Bisectoarea unui triunghi",
-      "description": "Bisectoarea unui triunghi este bisectoarea unui unghi interior al triunghiului. Bisectoarea unui unghi este semidreapta cu originea în vârful unghiului, care împarte acest unghi în alte două unghiuri congruente (unghiuri de măsuri egale)."
+      "description": "Bisectoarea unui triunghi este bisectoarea unui unghi interior al triunghiului. Bisectoarea unui unghi este semidreapta cu originea în vârful unghiului, care împarte acest unghi în alte două unghiuri congruente (unghiuri de măsuri egale).",
+      "youtube": "https://youtu.be/POSrn4LC4iw?si=2xoELPznW2KshMA7"
     },
     {
       "id": "5",
       "imageUrl": "https://www.matera.ro/wp-content/uploads/2020/12/tangente_dintrun_punct-exterior.jpg",
       "title": "Teorema tangentei la cerc",
-      "description": "Fie A un punct exterior unui cerc. Dacă AM și AP sunt tangentele duse din A, atunci segmente AM și AP sunt congruente."
+      "description": "Fie A un punct exterior unui cerc. Dacă AM și AP sunt tangentele duse din A, atunci segmente AM și AP sunt congruente.",
+      "youtube": "https://youtu.be/E-947Lo77lw?si=ml_77ZjlCFgfSY5J&t=1301"
     },
     {
       "id": "6",
       "imageUrl": "https://www.matera.ro/wp-content/uploads/2020/01/capture-8.png",
       "title": "Teorema înălțimii",
-      "description": "Într-un triunghi dreptunghic, pătratul înălțimii este egal cu produsul proiecțiilor catetelor pe ipotenuză."
+      "description": "Într-un triunghi dreptunghic, pătratul înălțimii este egal cu produsul proiecțiilor catetelor pe ipotenuză.",
+      "youtube": "https://youtu.be/iI80AbgIQXs?si=UlzDNv78vXc8gmtX"
     },
     {
       "id": "7",
       "imageUrl": "https://www.matera.ro/wp-content/uploads/2020/01/pitagora.png",
       "title": "Teorema lui Pitagora",
-      "description": "Într-un triunghi dreptunghic, suma pătratelor catetelor este egală cu pătratul ipotenuzei."
+      "description": "Într-un triunghi dreptunghic, suma pătratelor catetelor este egală cu pătratul ipotenuzei.",
+      "youtube": "https://youtu.be/3yfjCEu-6xs?si=iNDhO0_3QtR2sW-C"
     },
     {
       "id": "8",
       "imageUrl": "https://www.matera.ro/wp-content/uploads/2020/01/capture-9.png",
       "title": "Teorema catetei",
-      "description": "Într-un triunghi dreptunghic, pătratul unei catete este produsul dintre ipotenuză și proiecția catetei pe ipotenuză."
+      "description": "Într-un triunghi dreptunghic, pătratul unei catete este produsul dintre ipotenuză și proiecția catetei pe ipotenuză.",
+      "youtube": "https://youtu.be/5C5qJk4Ndz4?si=c3Upetx65xKbooyU"
     },
     {
       "title": "Mediatoare unui triunghi",
       "imageUrl": "https://www.matera.ro/wp-content/uploads/2019/12/mediatoaree.png",
       "description": "În geometria plană, mediatoarea este perpendiculara dusă prin mijlocul unui segment. Mediatoarea poate fi definită și ca fiind locul geometric al punctelor egal depărtate de extremitățile segmentului.",
-      "id": "2"
+      "id": "2",
+      "youtube": "https://youtu.be/xEKGcCrSGok?si=IVGSC1YglAsTQ7ap&t=71"
     }
   ]
 }

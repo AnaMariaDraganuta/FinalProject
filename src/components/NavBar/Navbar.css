@@ -32,8 +32,9 @@
 }
 
 .navbar-list li a:hover {
-  background-color: #36a4c5;
+  background-color: #9336c5;;
   color: black;
+  border-radius: 10px;
 }
 
 /* Media query */
