@@ -38,12 +38,16 @@ export function Register() {
   return (
     <div className="register-container">
       <div className="image-container">
-        <img src="src/photo/create.JPG" alt="Placeholder" />
+      {/* <img src="src/photo/create1.png" alt="Placeholder" /> */}
+
+        <img src="https://i.pinimg.com/564x/1b/37/e6/1b37e685763b14a05358ad202ac97a2d.jpg" alt="Placeholder" />
       </div>
 
       <div className="register">
         <form onSubmit={register}>
-          
+        <h1 className="register-title">Create new account </h1>
+          <div className="register-flex-container">
+
           <fieldset>
             <label htmlFor="firstName">First Name:</label>
             <div>
@@ -52,11 +56,12 @@ export function Register() {
           </fieldset>
 
           <fieldset>
-            <label htmlFor="secondName">Second Name</label>
+            <label htmlFor="secondName">Second Name:</label>
             <div>
               <input type="text" id="secondName" name="secondName" required />
             </div>
           </fieldset>
+          </div>
 
           <fieldset>
             <label htmlFor="username">Username:</label>
@@ -83,7 +88,7 @@ export function Register() {
               />
             </div>
           </fieldset>
-
+          <div className="register-flex-container">
           <fieldset>
             <label htmlFor="password">Password:</label>
             <div>
@@ -92,7 +97,7 @@ export function Register() {
           </fieldset>
 
           <fieldset>
-            <label htmlFor="reTypePassword">Confirm password:</label>
+            <label htmlFor="reTypePassword">Confirm Password:</label>
             <div>
               <input
                 type="password"
@@ -102,6 +107,7 @@ export function Register() {
               />
             </div>
           </fieldset>
+          </div>
 
           <fieldset>
             <label htmlFor="checkbox">

@@ -1,12 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { AuthContext } from "../../App";
-
-import './EditProfile.css'
+import { useNavigate } from "react-router-dom";
+import { AuthContext, IdContext } from "../../App";
+import './EditProfile.css';
 
 export default function EditProfile() {
   const { auth } = useContext(AuthContext);
-  const { id } = useParams();
+  const { id } = useContext(IdContext);
   const navigate = useNavigate();
 
   const [userData, setUserData] = useState({
@@ -18,38 +17,38 @@ export default function EditProfile() {
     phoneNumber: "",
     name: "",
   });
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-console.log(`ID:${id}`);
+
+  console.log(`ID: ${id}`);
+
   useEffect(() => {
     async function fetchUserData() {
-      try {
-        const response = await fetch(`http://localhost:3000/users/${id}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${auth}`
-          },
-        });
+      const response = await fetch(`http://localhost:3000/users/${id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${auth}`,
+        },
+      });
 
-        if (!response.ok) {
-          throw new Error("Nu s-a reușit preluarea datelor utilizatorului");
-        }
-
-        const data = await response.json();
-        setUserData({
-          email: data.email,
-          username: data.username,
-          secondName: data.secondName,
-          firstName: data.firstName,
-          phoneNumber : data.phoneNumber,
-          password: "********",
-        });
-      } catch (error) {
-        setError("Eroare la preluarea datelor utilizatorului");
-      } finally {
+      if (!response.ok) {
+        setError("Nu s-a reușit preluarea datelor utilizatorului");
         setLoading(false);
+        return;
       }
+
+      const data = await response.json();
+      setUserData({
+        email: data.email,
+        username: data.username,
+        secondName: data.secondName,
+        firstName: data.firstName,
+        phoneNumber: data.phoneNumber,
+        password: "********",
+      });
+      setLoading(false);
     }
 
     if (id && auth) {
@@ -60,7 +59,7 @@ console.log(`ID:${id}`);
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const { email, username, password ,firstName, secondName ,phoneNumber } = userData;
+    const { email, username, password, firstName, secondName, phoneNumber } = userData;
 
     const updatedUserData = {
       email,
@@ -71,24 +70,21 @@ console.log(`ID:${id}`);
       phoneNumber,
     };
 
-    try {
-      const response = await fetch(`http://localhost:3000/users/${id}`, {
-        method: "PUT",
-        headers: {
-          "Authorization": `Bearer ${auth}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedUserData),
-      });
+    const response = await fetch(`http://localhost:3000/users/${id}`, {
+      method: "PUT",
+      headers: {
+        "Authorization": `Bearer ${auth}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedUserData),
+    });
 
-      if (!response.ok) {
-        throw new Error("Nu s-a reușit actualizarea datelor utilizatorului");
-      }
-
-      navigate("/");
-    } catch (error) {
-      setError("Eroare la actualizarea datelor utilizatorului");
+    if (!response.ok) {
+      setError("Nu s-a reușit actualizarea datelor utilizatorului");
+      return;
     }
+
+    navigate("/");
   }
 
   function handleInputChange(event) {
@@ -105,55 +101,54 @@ console.log(`ID:${id}`);
 
   return (
     <form className="edit-profile-form" onSubmit={handleSubmit}>
-    <h1 className="edit-title">Edit Profile</h1>
-    {error && <div className="error">{error}</div>}
-    
-
-    <fieldset className="edit-profile-fieldset">
-      <label htmlFor="username" className="edit-profile-label">Username:</label>
-      <div>
-        <input type="text" id="username" name="username" className="edit-profile-input" value={userData.username} onChange={handleInputChange} />
-      </div>
-    </fieldset>
-
-    <div className="edit-profile-flex-container">
-      <fieldset className="edit-profile-fieldset-half">
-        <label htmlFor="firstName" className="edit-profile-label">First Name:</label>
+      <h1 className="edit-title">Edit Profile</h1>
+      {error && <div className="error">{error}</div>}
+      
+      <fieldset className="edit-profile-fieldset">
+        <label htmlFor="username" className="edit-profile-label">Username:</label>
         <div>
-          <input type="text" id="firstName" name="firstName" className="edit-profile-input" value={userData.firstName} onChange={handleInputChange} />
+          <input type="text" id="username" name="username" className="edit-profile-input" value={userData.username} onChange={handleInputChange} />
         </div>
       </fieldset>
 
-      <fieldset className="edit-profile-fieldset-half">
-        <label htmlFor="secondName" className="edit-profile-label">Second Name:</label>
+      <div className="edit-profile-flex-container">
+        <fieldset className="edit-profile-fieldset-half">
+          <label htmlFor="firstName" className="edit-profile-label">First Name:</label>
+          <div>
+            <input type="text" id="firstName" name="firstName" className="edit-profile-input" value={userData.firstName} onChange={handleInputChange} />
+          </div>
+        </fieldset>
+
+        <fieldset className="edit-profile-fieldset-half">
+          <label htmlFor="secondName" className="edit-profile-label">Second Name:</label>
+          <div>
+            <input type="text" id="secondName" name="secondName" className="edit-profile-input" value={userData.secondName} onChange={handleInputChange} />
+          </div>
+        </fieldset>
+      </div>
+
+      <fieldset className="edit-profile-fieldset">
+        <label htmlFor="email" className="edit-profile-label">Email:</label>
         <div>
-          <input type="text" id="secondName" name="secondName" className="edit-profile-input" value={userData.secondName} onChange={handleInputChange} />
+          <input type="email" id="email" name="email" className="edit-profile-input" value={userData.email} onChange={handleInputChange} />
         </div>
       </fieldset>
-    </div>
 
-    <fieldset className="edit-profile-fieldset">
-      <label htmlFor="email" className="edit-profile-label">Email:</label>
-      <div>
-        <input type="email" id="email" name="email" className="edit-profile-input" value={userData.email} onChange={handleInputChange} />
-      </div>
-    </fieldset>
+      <fieldset className="edit-profile-fieldset">
+        <label htmlFor="phoneNumber" className="edit-profile-label">Phone Number:</label>
+        <div>
+          <input type="text" id="phoneNumber" name="phoneNumber" className="edit-profile-input" value={userData.phoneNumber} onChange={handleInputChange} />
+        </div>
+      </fieldset>
 
-    <fieldset className="edit-profile-fieldset">
-      <label htmlFor="phoneNumber" className="edit-profile-label">Phone Number:</label>
-      <div>
-        <input type="text" id="phoneNumber" name="phoneNumber" className="edit-profile-input" value={userData.phoneNumber} onChange={handleInputChange} />
-      </div>
-    </fieldset>
+      <fieldset className="edit-profile-fieldset">
+        <label htmlFor="password" className="edit-profile-label">Password:</label>
+        <div>
+          <input type="password" id="password" name="password" className="edit-profile-input" value={userData.password} onChange={handleInputChange} />
+        </div>
+      </fieldset>
 
-    <fieldset className="edit-profile-fieldset">
-      <label htmlFor="password" className="edit-profile-label">Password:</label>
-      <div>
-        <input type="password" id="password" name="password" className="edit-profile-input" value={userData.password} onChange={handleInputChange} />
-      </div>
-    </fieldset>
-
-    <button type="submit" className="edit-profile-button">Save</button>
-  </form>
+      <button type="submit" className="edit-profile-button">Save</button>
+    </form>
   );
 }

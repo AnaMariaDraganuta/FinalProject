@@ -8,6 +8,9 @@ export default function Logout() {
 
   const logout = () => {
     localStorage.removeItem("accessToken");
+    localStorage.removeItem("id");
+    localStorage.removeItem("roles");
+    localStorage.removeItem("user");
     setAuth(null);
     navigate("/login");
   };

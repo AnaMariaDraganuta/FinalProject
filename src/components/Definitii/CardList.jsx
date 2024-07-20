@@ -1,30 +1,34 @@
 import "./CardList.css";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Search from "../Search/Search";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../App";
 
 const CardList = () => {
-  const { auth } = useContext(AuthContext);
   const navigate = useNavigate();
   const [cards, setCards] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [user] = useState(() => {
-    const userFromStorage = localStorage.getItem('user');
-    console.log('User from localStorage:', userFromStorage); // Verificăm conținutul
-    return userFromStorage ? JSON.parse(userFromStorage) : null;
-  });
   const [isAdmin, setAdmin] = useState(false);
 
   useEffect(() => {
-    if (user && user.roles) {
-      console.log('User roles:', user.roles); // Verificăm rolurile
-      setAdmin(user.roles.includes("Admin"));
+    const userFromStorage = localStorage.getItem('user');
+    console.log('User from localStorage:', userFromStorage); 
+    
+    if (userFromStorage) {
+      const user = JSON.parse(userFromStorage);
+      console.log('Parsed user:', user); 
+
+      if (user.roles && Array.isArray(user.roles)) {
+        console.log('User roles:', user.roles); 
+        setAdmin(user.roles.includes("Admin"));
+      } else {
+        console.log('User roles are not an array or undefined');
+        setAdmin(false);
+      }
     } else {
-      console.log('No roles found for user');
+      console.log('No user found');
       setAdmin(false);
     }
-  }, [user]);
+  }, []);
 
   console.log(`Is Admin: ${isAdmin}`);
 
@@ -63,7 +67,6 @@ const CardList = () => {
   return (
     <div>
       <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-
       <ul className="card-list">
         {filteredCards.map((card) => (
           <li
@@ -73,16 +76,15 @@ const CardList = () => {
           >
             <h2>{card.title}</h2>
             <img src={card.imageUrl} alt={card.title} />
-            {/* <p>Definiție: {card.description}</p> */}
             <p>Click pentru mai multe informatii.</p>
           </li>
         ))}
       </ul>
-      {auth && isAdmin ? (
+      {isAdmin && (
         <button className="create-button" onClick={createCard}>
           Adauga definitii
         </button>
-      ) : null}
+      )}
     </div>
   );
 };

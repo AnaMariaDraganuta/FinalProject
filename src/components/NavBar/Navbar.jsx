@@ -2,7 +2,9 @@ import Logout from "../auth/logout/logout";
 
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext, IdContext } from "../../App";
+import { AuthContext} from "../../App";
+import { IdContext } from "../../App";
+
 
 import "./Navbar.css";
 
@@ -17,9 +19,9 @@ const Navbar = () => {
         <li><Link to="/teste">Teste</Link></li>
 
         {auth ? (
-            <>
-          <li><Logout/></li>
+          <>
           <li><Link to={`/edit-profile/${id}`}>Edit Profile</Link></li>
+          <li><Logout/></li>
         </>
         ) : (
         

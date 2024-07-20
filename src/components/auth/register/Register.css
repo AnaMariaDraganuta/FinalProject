@@ -1,3 +1,8 @@
+.register-title{
+  text-align: center;
+  font-size: 1.75rem;
+}
+
 .register-container {
   display: flex;
   flex-direction: row;
@@ -6,6 +11,7 @@
   max-width: 1000px;
   margin-top: 5%;
   margin-left: 12%;
+  gap: 1rem;
 }
 
 .image-container {
@@ -18,7 +24,7 @@
 
 .image-container img {
   width: 100%;
-  max-width: 330px;
+  max-width: 385px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -26,8 +32,7 @@
 .register {
   display: flex;
   justify-content: center;
-  width: 100%;
-  max-width: 300px;
+  max-width: 350px;
   background: #fff;
   padding: 1rem;
   border-radius: 10px;
@@ -71,6 +76,11 @@
   border-color: #007bff;
   outline: none;
 }
+.register-flex-container{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
 
 .buttonRegister {
   width: 100%;
@@ -88,7 +98,6 @@
   background-color: #0056b3;
 }
 
-/* Media Queries */
 @media (max-width: 768px) {
   .register-container {
     flex-direction: column;
